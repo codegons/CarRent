@@ -1,0 +1,38 @@
+server:
+  servlet:
+    context-path: /
+  port: 8080
+    
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/gdb?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root123#
+ 
+    jpa:
+        hibernate:
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    
+logging:
+    pattern:
+        console: '%d{yyyy-MM-dd HH:mm:ss.sss} %-1level [%thread] %c - [ hostname:
+            %X{hostname} # version: %X{version} # conversationId : %X{transactionId}
+            # servicename: %X{serviceName} ]: %msg%n'
+
+application:
+    version: 1.0.1
+
+
+### toke security for securing services 
+
+secure:
+    api:
+        service:
+            enable: true
+    service:
+        password: admin
+        token:
+            age: 300
+        user: admin
